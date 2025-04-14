@@ -1,0 +1,5 @@
+CLASS zbp_dd_root_pedidos DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zdd_root_pedidos.
+ENDCLASS.
+
+CLASS zbp_dd_root_pedidos IMPLEMENTATION.
+ENDCLASS.

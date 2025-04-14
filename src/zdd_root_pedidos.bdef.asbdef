@@ -1,0 +1,27 @@
+managed implementation in class zbp_dd_root_pedidos unique;
+strict ( 2 );
+
+define behavior for zdd_root_pedidos //alias <alias_name>
+persistent table zta_vbak
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) Vbeln;
+  association _Child_Itms { create; }
+}
+
+define behavior for zdd_child_items_ped //alias <alias_name>
+persistent table zta_vbap
+lock dependent by _Root_Ped
+authorization dependent by _Root_Ped
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Vbeln, Posnr;
+  association _Root_Ped;
+}

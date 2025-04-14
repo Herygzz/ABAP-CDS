@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition para Pedidos Cte'
+define service Zsd_pedidos_cte {
+  expose zdd_pedidos_cte;
+}

@@ -1,0 +1,30 @@
+@Metadata.layer:  #CORE
+annotate entity zdd_root_pedidos with
+{
+  @UI.selectionField: [{ element : 'VBELN' ,position: 20 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Vbeln;
+  @UI.selectionField: [{ element : 'ERDAT' ,position: 10 }]
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  Erdat;
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  Erzet;
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  Auart;
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  Netwr;
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  Waerk;
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  Vkorg;
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  Vtweg;
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  Spart;
+//  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+//  Kunnr;
+//
+//  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+//  _Cte;
+
+}
