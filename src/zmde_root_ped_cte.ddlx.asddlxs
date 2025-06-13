@@ -1,6 +1,46 @@
 @Metadata.layer:  #CORE
+@UI.headerInfo: {
+    typeName: 'Pedido de Ventas',
+    typeNamePlural: 'Pedidos de Ventas',
+    typeImageUrl: '',
+    imageUrl: '',
+    title: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: '',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    },
+    description: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: '',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    }
+}
 annotate entity zdd_root_pedidos with
 {
+  // Con FACET se determina la pantalla de Detalla
+  @UI.facet: [{ id: '_DOC_ITM', position: 10, label: 'Pedido de Ventas', type: #COLLECTION },
+              { id: '_DOC_DEL', position: 20, label: 'Entregas', type: #COLLECTION },
+              { id: '_DOC_INV', position: 30, label: 'Facturas', type: #COLLECTION },
+              { id: '_ITEMS', position: 40, label: 'Items', purpose:#STANDARD, type: #LINEITEM_REFERENCE, targetElement: '_Child_Itms' },
+
+              { id: '_ITM', parentId: '_DOC_ITM', label:'Detalle del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DOC_ITM', position: 10},
+              { id: '_DEL', parentId: '_DOC_DEL', label:'Entregas del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DOC_DEL', position: 20},
+              { id: '_INV', parentId: '_DOC_INV', label:'Facturas del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DOC_INV', position: 30}
+  //              { id: '_IT', parentId: '_ITEMS', label:'Posiciones', type: #FIELDGROUP_REFERENCE, targetQualifier: '_ITEMS', position: 40}
+              ]
+
   @UI.selectionField: [{ element : 'VBELN' ,position: 20 }]
   @UI.lineItem: [{ position: 10, importance: #HIGH }]
   Vbeln;
@@ -17,14 +57,22 @@ annotate entity zdd_root_pedidos with
   Waerk;
   @UI.lineItem: [{ position: 70, importance: #HIGH }]
   Vkorg;
-  @UI.lineItem: [{ position: 80, importance: #HIGH }]
-  Vtweg;
-  @UI.lineItem: [{ position: 90, importance: #HIGH }]
-  Spart;
-//  @UI.lineItem: [{ position: 100, importance: #HIGH }]
-//  Kunnr;
-//
-//  @UI.lineItem: [{ position: 110, importance: #HIGH }]
-//  _Cte;
 
+  @UI.fieldGroup: [{ qualifier: '_DOC_ITM', position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Vtweg;
+
+  @UI.fieldGroup: [{ qualifier: '_DOC_DEL', position: 20 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Spart;
+
+  @UI.fieldGroup: [{ qualifier: '_DOC_INV', position: 30 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Kunnr;
+  //
+  //  @UI.lineItem: [{ position: 110, importance: #HIGH }]
+  //  _Cte;
+
+  //  @UI.fieldGroup: [{ qualifier: '_IT', position: 40 }]
+  //  _Child_Itms;
 }

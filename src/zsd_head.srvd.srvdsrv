@@ -1,0 +1,4 @@
+@EndUserText.label: 'Cabecera'
+define service Zsd_head {
+  expose zdd_head;
+}

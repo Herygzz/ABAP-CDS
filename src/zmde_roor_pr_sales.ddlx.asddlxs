@@ -1,0 +1,50 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: {
+    typeName: 'Pedido de Ventas',
+    typeNamePlural: 'Pedidos de Ventas',
+    title: { label: 'Documentos de Ventas' },
+    description: { label: 'Desc.' }
+}
+annotate entity zdd_roor_pr_sales with
+{
+
+  // Con FACET se determina la pantalla de Detalla
+  @UI.facet: [{ id: '_HDR', purpose: #HEADER, position: 10, label: 'Cabecera Pedido de Ventas', type: #COLLECTION },
+              { id: '_ITEMS', position: 20, type: #LINEITEM_REFERENCE, targetElement: '_Items' },
+
+                { id: '_HEADER', parentId: '_HDR', label:'Cabecera del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_HDR', position: 10},
+  //              { id: '_DEL', parentId: '_DOC_DEL', label:'Entregas del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DOC_DEL', position: 20},
+  //              { id: '_INV', parentId: '_DOC_INV', label:'Facturas del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DOC_INV', position: 30}
+                { id: '_IT', parentId: '_ITEMS', label:'Posiciones', type: #FIELDGROUP_REFERENCE, targetQualifier: '_ITEMS', position: 20}
+              ]
+
+  @UI.fieldGroup: [{ qualifier: '_HDR', position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Vbeln;
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  Erdat;
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  Erzet;
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  Auart;
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  Netwr;
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  Waerk;
+  @UI.fieldGroup: [{ qualifier: '_HDR', position: 20 }]
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  Vkorg;
+  @UI.fieldGroup: [{ qualifier: '_HDR', position: 30 }]
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  Vtweg;
+  @UI.fieldGroup: [{ qualifier: '_HDR', position: 40 }]
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  Spart;
+  @UI.fieldGroup: [{ qualifier: '_HDR', position: 50 }]
+  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+  @UI.selectionField: [{ position: 10 }]
+  Kunnr;
+  @UI.fieldGroup: [{ qualifier: '_ITEMS', position: 10 }]
+  _Items;
+
+}

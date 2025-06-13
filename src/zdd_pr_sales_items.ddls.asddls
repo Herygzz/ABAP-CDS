@@ -1,11 +1,11 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Child Posiciones de Pedidos'
+@EndUserText.label: 'Proyección para Posiciones de Pedidos'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define view entity zdd_child_items_ped
+define view entity zdd_pr_sales_items
   as select from zta_vbap
-  association to parent zdd_root_pedidos  as _Root_Ped  on $projection.Vbeln = _Root_Ped.Vbeln
+  association to parent zdd_roor_pr_sales as _Root_Ped on $projection.Vbeln = _Root_Ped.Vbeln
 {
   key vbeln  as Vbeln,
   key posnr  as Posnr,

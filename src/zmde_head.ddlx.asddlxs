@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: 'Pedido de Ventas',
+    typeNamePlural: 'Pedidos de Ventas',
+    title: { label: 'Documentos de Ventas' },
+    description: { label: 'Desc.' }
+}
+annotate entity zdd_head with
+{
+  @UI.facet: [{ id: '_HDR', purpose: #HEADER, position: 10, label: 'Cabecera Pedido de Ventas', type: #COLLECTION },
+              { id: '_IT', purpose: #STANDARD, position: 10, label: 'Posiciones Pedido de Ventas', type: #COLLECTION },
+
+              { id: '_ITM', parentId: '_IT', position: 10, type: #LINEITEM_REFERENCE, targetElement: '_Items' },
+
+              { id: '_HEADER', parentId: '_HDR', label:'Cabecera del Pedido', type: #FIELDGROUP_REFERENCE, targetQualifier: '_DETHDR', position: 10}
+             ]
+
+  @UI.fieldGroup: [{ qualifier: '_DETHDR', position: 10 }]
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Vbeln;
+  @UI.lineItem: [{ position: 10, importance: #HIGH }]
+  Erdat;
+  @UI.lineItem: [{ position: 20, importance: #HIGH }]
+  Erzet;
+  @UI.lineItem: [{ position: 30, importance: #HIGH }]
+  Auart;
+  @UI.lineItem: [{ position: 40, importance: #HIGH }]
+  Netwr;
+  @UI.lineItem: [{ position: 50, importance: #HIGH }]
+  Waerk;
+  @UI.lineItem: [{ position: 60, importance: #HIGH }]
+  Vkorg;
+  @UI.lineItem: [{ position: 70, importance: #HIGH }]
+  Vtweg;
+  @UI.lineItem: [{ position: 80, importance: #HIGH }]
+  Spart;
+  @UI.lineItem: [{ position: 90, importance: #HIGH }]
+  Kunnr;
+  //  /* Associations */
+  //  @UI.lineItem: [{ position: 100, importance: #HIGH }]
+  @UI.lineItem: [{qualifier: '_ITM'}]
+  _Items;
+
+}

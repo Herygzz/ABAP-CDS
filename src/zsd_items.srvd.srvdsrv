@@ -1,0 +1,4 @@
+@EndUserText.label: 'Posiciones'
+define service Zsd_items {
+  expose zdd_items;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition para Pedidos'
+define service Zsd_roor_pr_sales {
+  expose zdd_roor_pr_sales;
+}

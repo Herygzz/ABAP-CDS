@@ -1,0 +1,35 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Position',
+    typeNamePlural: 'Positions'
+  }
+}
+annotate entity zdd_pr_sales_items with
+{
+  @UI.hidden: true
+  Vbeln;
+  @UI.lineItem: [{ position: 10 }]
+  Posnr;
+  @UI.lineItem: [{ position: 20 }]
+  Matnr;
+  @UI.lineItem: [{ position: 30 }]
+  Arktx;
+  @UI.lineItem: [{ position: 40 }]
+  Meins;
+  @UI.lineItem: [{ position: 50 }]
+  Netwr;
+  @UI.lineItem: [{ position: 60 }]
+  Waerk;
+  @UI.lineItem: [{ position: 70 }]
+  Kwmeng;
+  @UI.lineItem: [{ position: 80 }]
+  Vrkme;
+  @UI.lineItem: [{ position: 90 }]
+  Werks;
+  @UI.lineItem: [{ position: 100 }]
+  Netpr;
+  //    /* Associations */
+  //    _Root_Ped;
+  //
+}
